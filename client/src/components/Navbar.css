@@ -1,0 +1,14 @@
+.navbar .mx-auto {
+    width: 80%; /* Adjust width as needed */
+    display: flex;
+    justify-content: center;
+  }
+
+.NavTitle {
+    margin-left: 10rem;
+}
+
+.NavSignIn {
+    margin-right: 8rem;
+}
+

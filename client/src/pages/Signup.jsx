@@ -53,7 +53,22 @@ const Signup = () => {
   return (
     <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
       <div className="bg-white p-3 rounded w-50">
-        <h2>Register</h2>
+      <div class="container">
+          <div class="row align-items-center">
+            <div class="col-sm d-flex justify-content-start">
+              <h2>Register</h2>
+            </div>
+            <div class="col-sm d-flex justify-content-end">
+              <Link
+                to="/home"
+                className="btn btn-default border bg-light rounded-0 text-decoration-none"
+              >
+                return
+              </Link>
+            </div>
+          </div>
+        </div>
+        
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="email">

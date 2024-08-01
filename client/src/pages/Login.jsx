@@ -34,12 +34,7 @@ const Login = () => {
               <h2>Login</h2>
             </div>
             <div class="col-sm d-flex justify-content-end">
-              <Link
-                to="/register"
-                className="btn btn-default border bg-light rounded-0 text-decoration-none"
-              >
-                return
-              </Link>
+              
             </div>
           </div>
         </div>
@@ -69,6 +64,12 @@ const Login = () => {
               className="form-control rounded-0"
               onChange={(e) => setPassword(e.target.value)}
             />
+            <Link
+                to="/register"
+                className="border bg-light rounded-0 text-decoration-none "
+              >
+                I don't have an account
+              </Link>
           </div>
           <button type="submit" className="btn btn-success w-100 rounded-0">
             Login
