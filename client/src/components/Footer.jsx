@@ -38,7 +38,7 @@ const Footer = () => {
             <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>
                 <MDBIcon color='secondary' icon='gem' className='me-3' />
-                Company name
+                STEP.IO
               </h6>
               <p>
                 Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
@@ -116,9 +116,9 @@ const Footer = () => {
       </section>
 
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2021 Copyright:
-        <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-          MDBootstrap.com
+        © 2024 Copyright:
+        <a className='text-reset fw-bold' href=''>
+          Step.io
         </a>
       </div>
     </MDBFooter>

@@ -17,7 +17,7 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         if (result.data === "Success") {
-          navigate("/home");
+          navigate("/member");
         } else {
           setErrors(result.data);
         }

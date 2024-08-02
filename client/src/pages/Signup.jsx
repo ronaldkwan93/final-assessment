@@ -60,7 +60,7 @@ const Signup = () => {
             </div>
             <div class="col-sm d-flex justify-content-end">
               <Link
-                to="/home"
+                to="/"
                 className="btn btn-default border bg-light rounded-0 text-decoration-none"
               >
                 return

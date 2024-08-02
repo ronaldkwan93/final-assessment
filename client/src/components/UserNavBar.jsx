@@ -8,7 +8,7 @@ import './Navbar.css'
 import { useNavigate, Link } from 'react-router-dom';
 
 
-const NavbarHome = () => {
+const UserNavBar = () => {
     const navigate = useNavigate();
     const handleClick = () => {
         navigate('/login');
@@ -16,14 +16,15 @@ const NavbarHome = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary navbar">
       <Container fluid>
-        <Navbar.Brand href="#" className="NavTitle">Step.io</Navbar.Brand>
+        <Navbar.Brand href="#" className="NavTitle" as={Link} to='/member'>Step.io</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <div className="mx-auto d-flex">
             <Nav className="m-auto">
-              <Nav.Link href="#action1" as={Link} to="/register">Careers</Nav.Link>
-              <Nav.Link href="#action2" as={Link} to="/register">Salaries</Nav.Link>
-              <Nav.Link href="#action3" as={Link} to="/register">Universities</Nav.Link>
+              <Nav.Link href="#action1" as={Link} to='/member'>Dashboard</Nav.Link>
+              <Nav.Link href="#action1" as={Link} to='/careers'>Careers</Nav.Link>
+              <Nav.Link href="#action2" as={Link} to='/salaries'>Salaries</Nav.Link>
+              <Nav.Link href="#action3" as={Link} to='/universities'>Universities</Nav.Link>
             </Nav>
           </div>
           <Form className="d-flex">
@@ -34,11 +35,11 @@ const NavbarHome = () => {
               aria-label="Search"
             /> */}
           </Form>
-          <Button variant="outline-success" className='NavSignIn' onClick={handleClick}>Sign In</Button>
+          <Button variant="outline-success" className='NavSignIn' as={Link} to='/' >Sign out</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   )
 }
 
-export default NavbarHome
+export default UserNavBar
