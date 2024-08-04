@@ -24,9 +24,12 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await validationSchema.validate({ name, email, password }, {
-        abortEarly: false,
-      });
+      await validationSchema.validate(
+        { name, email, password },
+        {
+          abortEarly: false,
+        }
+      );
       console.log("Form Submitted", { name, email, password });
       axios
         .post("http://localhost:3001/register", { name, email, password })
@@ -49,11 +52,10 @@ const Signup = () => {
     }
   };
 
-
   return (
     <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
       <div className="bg-white p-3 rounded w-50">
-      <div class="container">
+        <div class="container">
           <div class="row align-items-center">
             <div class="col-sm d-flex justify-content-start">
               <h2>Register</h2>
@@ -68,7 +70,7 @@ const Signup = () => {
             </div>
           </div>
         </div>
-        
+
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="email">
@@ -109,9 +111,14 @@ const Signup = () => {
               className="form-control rounded-0"
               onChange={(e) => setPassword(e.target.value)}
             />
-            {errors.password && <p className="text-danger h6 ">{errors.password}</p>}
+            {errors.password && (
+              <p className="text-danger h6 ">{errors.password}</p>
+            )}
           </div>
-          <button type="submit" className="btn btn-success w-100 rounded-0 shadow p-3 mb-5 rounded-top rounded-bottom">
+          <button
+            type="submit"
+            className="btn btn-success w-100 rounded-0 shadow p-3 mb-5 rounded-top rounded-bottom"
+          >
             Register
           </button>
         </form>

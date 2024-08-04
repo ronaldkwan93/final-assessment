@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './Navbar.css'
 import { useNavigate, Link } from 'react-router-dom';
+import stepIcon from '/step-icon.png'
 
 
 const NavbarHome = () => {
@@ -16,7 +17,7 @@ const NavbarHome = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary navbar">
       <Container fluid>
-        <Navbar.Brand href="#" className="NavTitle">Step.io</Navbar.Brand>
+        <Navbar.Brand href="#" className="NavTitle">Step.io <img src={stepIcon} alt="" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <div className="mx-auto d-flex">

@@ -6,6 +6,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './Navbar.css'
 import { useNavigate, Link } from 'react-router-dom';
+import profileIcon from '/user.png'
+import stepIcon from '/step-icon.png'
+
 
 
 const UserNavBar = () => {
@@ -16,12 +19,11 @@ const UserNavBar = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary navbar">
       <Container fluid>
-        <Navbar.Brand href="#" className="NavTitle" as={Link} to='/member'>Step.io</Navbar.Brand>
+        <Navbar.Brand href="#" className="NavTitle" as={Link} to='/member'>Step.io <img src={stepIcon} alt="" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <div className="mx-auto d-flex">
             <Nav className="m-auto">
-              <Nav.Link href="#action1" as={Link} to='/member'>Dashboard</Nav.Link>
               <Nav.Link href="#action1" as={Link} to='/careers'>Careers</Nav.Link>
               <Nav.Link href="#action2" as={Link} to='/salaries'>Salaries</Nav.Link>
               <Nav.Link href="#action3" as={Link} to='/universities'>Universities</Nav.Link>
@@ -33,8 +35,10 @@ const UserNavBar = () => {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
-            /> */}
+              /> */}
           </Form>
+
+              <Nav.Link href="#action1" as={Link} to='/member' className='navMember'><img src={profileIcon} alt="Profile" /></Nav.Link>
           <Button variant="outline-success" className='NavSignIn' as={Link} to='/' >Sign out</Button>
         </Navbar.Collapse>
       </Container>
