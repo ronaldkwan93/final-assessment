@@ -2,18 +2,21 @@ import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import UserNavBar from "../components/UserNavBar";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 const UserHome = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    
+
     const email = localStorage.getItem('userEmail'); 
     if (email) {
       axios
         .post("http://localhost:3001/getUser", { email })
         .then((response) => {
           setUser(response.data);
-        })
+        }) 
         .catch((error) => {
           console.error("There was an error fetching the user!", error);
         });

@@ -13,6 +13,9 @@ import stepIcon from '/step-icon.png'
 
 const UserNavBar = () => {
     const navigate = useNavigate();
+    const onClick = () => {
+      localStorage.clear();
+    }
     const handleClick = () => {
         navigate('/login');
       };
@@ -39,7 +42,7 @@ const UserNavBar = () => {
           </Form>
 
               <Nav.Link href="#action1" as={Link} to='/member' className='navMember'><img src={profileIcon} alt="Profile" /></Nav.Link>
-          <Button variant="outline-success" className='NavSignIn' as={Link} to='/' >Sign out</Button>
+          <Button variant="outline-success" className='NavSignIn' as={Link} to='/' onClick={onClick}>Sign out</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
