@@ -17,7 +17,9 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         if (result.data === "Success") {
+          console.log(result)
           localStorage.setItem('userEmail', email);
+          localStorage.setItem('userId', result.data._id);
           navigate("/member");
         } else {
           setErrors(result.data);

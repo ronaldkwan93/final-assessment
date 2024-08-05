@@ -26,7 +26,8 @@ app.post("/login", (req, res) => {
         if(user) {
             if(user.password === password){
                 res.json("Success")
-                
+                console.log(user)
+    
             } else {
                 res.json("Email or Password is incorrect!")
             }
@@ -37,11 +38,28 @@ app.post("/login", (req, res) => {
 })
 
 
-app.post('/register', (req, res)=> {
-    UserModel.create(req.body)
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
-})
+app.post("/register", async (req, res) => {
+    const { name, email, password } = req.body;
+
+    try {
+        // Check if the email already exists
+        const existingUser = await UserModel.findOne({ email: email });
+
+        if (existingUser) {
+            return res.status(400).json({ error: 'Email already exists!' });
+        }
+
+        // Create a new user if the email is not taken
+        const newUser = new UserModel({ name, email, password });
+        await newUser.save();
+
+        res.status(201).json({ message: 'User created successfully!' });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
 app.post('/postCareer', (req, res) => {
     CareerModel.create(req.body)
         .then(career => res.json(career))
@@ -103,6 +121,29 @@ app.post('/getUser', (req, res) => {
         })
         .catch(err => res.status(500).json({ error: err.message }));
 });
+
+// Express.js route for updating user profile
+app.put("/updateUser", (req, res) => {
+    const { email, name, password } = req.body;
+  
+    if (!email || !name || !password) {
+      return res.status(400).json({ error: 'Email, name, and password are required' });
+    }
+  
+    UserModel.findOneAndUpdate(
+      { email: email }, // Find user by email
+      { name, password },
+      { new: true } // Return the updated document
+    )
+      .then((user) => {
+        if (!user) {
+          return res.status(404).json({ error: 'User not found' });
+        }
+        res.json(user);
+      })
+      .catch((err) => res.status(500).json({ error: err.message }));
+  });
+  
 
 
 

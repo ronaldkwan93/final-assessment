@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 const Signup = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
@@ -30,24 +29,26 @@ const Signup = () => {
           abortEarly: false,
         }
       );
-      console.log("Form Submitted", { name, email, password });
-      axios
-        .post("http://localhost:3001/register", { name, email, password })
-        .then((result) => {
-          console.log(result);
-          navigate("/login");
-        });
-    } catch (error) {
-      if (error.inner) {
-        const newErrors = {};
 
+      const response = await axios.post("http://localhost:3001/register", { name, email, password });
+
+      console.log(response.data.message);
+      navigate("/login");
+    } catch (error) {
+      if (error.response) {
+        // Server-side validation error
+        if (error.response.data.error) {
+          setErrors({ global: error.response.data.error });
+        }
+      } else if (error.inner) {
+        // Client-side validation error
+        const newErrors = {};
         error.inner.forEach((err) => {
           newErrors[err.path] = err.message;
         });
-
         setErrors(newErrors);
       } else {
-        console.log(error);
+        console.error("An unexpected error occurred:", error);
       }
     }
   };
@@ -55,17 +56,14 @@ const Signup = () => {
   return (
     <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
       <div className="bg-white p-3 rounded w-50">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-sm d-flex justify-content-start">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-sm d-flex justify-content-start">
               <h2>Register</h2>
             </div>
-            <div class="col-sm d-flex justify-content-end">
-              <Link
-                to="/"
-                className="btn btn-default border bg-light rounded-0 text-decoration-none"
-              >
-                return
+            <div className="col-sm d-flex justify-content-end">
+              <Link to="/" className="btn btn-default border bg-light rounded-0 text-decoration-none">
+                Return
               </Link>
             </div>
           </div>
@@ -73,18 +71,18 @@ const Signup = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="email">
+            <label htmlFor="name">
               <strong>Name</strong>
             </label>
             <input
               type="text"
               placeholder="Enter Name"
               autoComplete="off"
-              name="email"
+              name="name"
               className="form-control rounded-0"
               onChange={(e) => setName(e.target.value)}
             />
-            {errors.name && <p className="text-danger h6 ">{errors.name}</p>}
+            {errors.name && <p className="text-danger h6">{errors.name}</p>}
           </div>
           <div className="mb-3">
             <label htmlFor="email">
@@ -98,10 +96,10 @@ const Signup = () => {
               className="form-control rounded-0"
               onChange={(e) => setEmail(e.target.value)}
             />
-            {errors.email && <p className="text-danger h6 ">{errors.email}</p>}
+            {errors.email && <p className="text-danger h6">{errors.email}</p>}
           </div>
           <div className="mb-3">
-            <label htmlFor="email">
+            <label htmlFor="password">
               <strong>Password</strong>
             </label>
             <input
@@ -111,10 +109,9 @@ const Signup = () => {
               className="form-control rounded-0"
               onChange={(e) => setPassword(e.target.value)}
             />
-            {errors.password && (
-              <p className="text-danger h6 ">{errors.password}</p>
-            )}
+            {errors.password && <p className="text-danger h6">{errors.password}</p>}
           </div>
+          {errors.global && <p className="text-danger h6">{errors.global}</p>}
           <button
             type="submit"
             className="btn btn-success w-100 rounded-0 shadow p-3 mb-5 rounded-top rounded-bottom"
@@ -122,11 +119,8 @@ const Signup = () => {
             Register
           </button>
         </form>
-        <p>Already have an Account</p>
-        <Link
-          to="/login"
-          className="btn btn-default border w-100 bg-light rounded-0 text decoration-none"
-        >
+        <p>Already have an Account?</p>
+        <Link to="/login" className="btn btn-default border w-100 bg-light rounded-0 text decoration-none">
           Login
         </Link>
       </div>

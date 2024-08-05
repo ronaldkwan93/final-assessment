@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import UserNavBar from "../components/UserNavBar";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const UserHome = () => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate(); // Initialize the navigate function
 
   useEffect(() => {
-    
-
     const email = localStorage.getItem('userEmail'); 
     if (email) {
       axios
@@ -23,6 +22,10 @@ const UserHome = () => {
     }
   }, []);
 
+  const handleUpdateProfile = () => {
+    navigate("/updateProfile"); // Navigate to the UpdateProfile component
+  };
+
   return (
     <>
       <UserNavBar />
@@ -32,7 +35,24 @@ const UserHome = () => {
         </div>
         <div>
           {user ? (
-            <h2>{user.name}</h2>
+            <h2>Welcome back, {user.name}!</h2>
+          ) : (
+            <p>Loading user data...</p>
+          )}
+        </div>
+        <div>
+          <button onClick={handleUpdateProfile}>Change your profile</button>
+        </div>
+        <div>
+          {user ? (
+            <h2>Email: {user.email}</h2>
+          ) : (
+            <p>Loading user data...</p>
+          )}
+        </div>
+        <div>
+          {user ? (
+            <h2>Password: {user.password}</h2>
           ) : (
             <p>Loading user data...</p>
           )}

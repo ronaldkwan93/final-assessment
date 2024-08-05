@@ -7,6 +7,7 @@ import CareerSearch from "./pages/CareerSearch";
 import SalariesSearch from "./pages/SalariesSearch";
 import Universities from "./pages/Universities";
 import UserHome from "./pages/UserHome";
+import UpdateProfile from "./pages/UpdateProfile";
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
           <Route path="/salaries" element={<SalariesSearch />} />
           <Route path="/universities" element={<Universities />} />
           <Route path="/member" element={<UserHome />} />
-        </Routes>
+          <Route path="/updateProfile" element={<UpdateProfile />} /> 
+
+          </Routes>
       </BrowserRouter>
     </div>
   );
