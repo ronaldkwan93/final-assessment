@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import UserNavBar from "../components/UserNavBar";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import './PagesCustom.css';
 
 const UserHome = () => {
   const [user, setUser] = useState(null);
+  const [pinnedCareers, setPinnedCareers] = useState([]);
   const navigate = useNavigate(); // Initialize the navigate function
 
   useEffect(() => {
@@ -20,10 +22,21 @@ const UserHome = () => {
           console.error("There was an error fetching the user!", error);
         });
     }
+
+    const storedPinnedCareers = localStorage.getItem('pinnedCareers');
+    if (storedPinnedCareers) {
+      setPinnedCareers(JSON.parse(storedPinnedCareers));
+    }
   }, []);
 
   const handleUpdateProfile = () => {
     navigate("/updateProfile"); // Navigate to the UpdateProfile component
+  };
+
+  const handleRemoveCareer = (careerId) => {
+    const updatedPinnedCareers = pinnedCareers.filter(career => career._id !== careerId);
+    setPinnedCareers(updatedPinnedCareers);
+    localStorage.setItem('pinnedCareers', JSON.stringify(updatedPinnedCareers));
   };
 
   return (
@@ -41,7 +54,7 @@ const UserHome = () => {
           )}
         </div>
         <div>
-          <button onClick={handleUpdateProfile}>Change your profile</button>
+          <button onClick={handleUpdateProfile}>Change your credentials</button>
         </div>
         <div>
           {user ? (
@@ -55,6 +68,27 @@ const UserHome = () => {
             <h2>Password: {user.password}</h2>
           ) : (
             <p>Loading user data...</p>
+          )}
+        </div>
+        <h2 className="saved">Saved:</h2>
+        <div className="grid-container">
+          {pinnedCareers.length > 0 ? (
+            pinnedCareers.map((career) => (
+              <div 
+                key={career._id} 
+                className="grid-item" 
+                onClick={() => handleRemoveCareer(career._id)} // Add click handler here
+              >
+                <h2>{career.name}</h2>
+                <p><strong>Discipline:</strong> {career.discipline}</p>
+                <p><strong>Years of Study:</strong> {career.studyYears}</p>
+              </div>
+            ))
+          ) : (
+            <Link to='/careers' className="careerLink">
+            <p>Can't see any pins. Click here to explore!</p>
+            
+            </Link>
           )}
         </div>
       </div>

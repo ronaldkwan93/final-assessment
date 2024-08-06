@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import UserNavBar from "../components/UserNavBar";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import arrowBack from '/arrowback.png'
+
 
 const UpdateProfile = () => {
   const [user, setUser] = useState(null);
@@ -47,6 +49,8 @@ const UpdateProfile = () => {
       .catch((error) => {
         console.error("There was an error updating the profile!", error);
       });
+
+    
   };
 
   return (
@@ -54,6 +58,9 @@ const UpdateProfile = () => {
       <UserNavBar />
       <div className="d-flex flex-column align-items-center">
         <div className="Main">
+          <Link to={'/member'}>
+          <img src={arrowBack} alt=""/>
+           </Link>
           <h1>Update Profile</h1>
         </div>
         <div>

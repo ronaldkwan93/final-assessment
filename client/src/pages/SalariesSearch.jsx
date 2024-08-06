@@ -22,26 +22,28 @@ const SalariesSearch = () => {
   return (
     <>
       <UserNavBar />
+      <img src="/pin.png" alt="pin" placeholder="hello"/>
       <div>
         <div className="Main">
           <h1>Salaries</h1>
           <input type="search" placeholder="Search here" />
         </div>
         <div>{/* Create search bar here */}</div>
-        <div>
+        <div className="grid-container">
           {/* Map and display SalariesSearch */}
           {SalariesSearch.length > 0 ? (
             <ul>
               {SalariesSearch.map((salary) => (
-                <li key={salary._id}>
+                <div key={salary._id} className="grid-item">
                   <h2>{salary.name}</h2>
+                   {/* Direct reference to public directory */}
                   <p>
                     <strong>Average:</strong> {salary.Average}
                   </p>
                   <p>
                     <strong>Starting Salary:</strong> {salary.Starting}
                   </p>
-                </li>
+                </div>
               ))}
             </ul>
           ) : (

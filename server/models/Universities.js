@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const UniversitiesSchema = new mongoose.Schema({
     name: String, 
     description: String,
-    location: String
+    location: String,
+    link: String
 });
 
 // Create the model

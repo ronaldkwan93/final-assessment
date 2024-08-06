@@ -4,5 +4,56 @@
 }
 
 .Main h1 {
-    font-size: 5rem;
+  font-size: 5rem;
+  margin-bottom: 5rem;
+}
+
+.Main img {
+  width: 5rem;
+  float: left;
+  margin: 2rem;
+}
+
+.Main input {
+  margin-bottom: 1rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Adjust to fit 3 items per row */
+  gap: 5px; /* Optional: space between grid items */
+  background-color: #9e9e9e;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  margin: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.grid-item:hover {
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+
+.grid-item img {
+  width: 2rem;
+  float: right;
+}
+
+.grid-item img:hover {
+  border-radius:50%;
+  box-shadow: 0 0 0 3px #e78267;
+}
+
+.saved {
+  margin-top: 2rem;
+}
+
+.careerLink {
+  text-decoration: none;
+  color: red;
 }
