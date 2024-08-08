@@ -1,3 +1,7 @@
+body{
+  background-color: rgb(236, 180, 160)
+}
+
 .Main {
   text-align: center;
   margin-top: 2rem;
@@ -56,4 +60,61 @@
 .careerLink {
   text-decoration: none;
   color: red;
+}
+
+header {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.card {
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 1rem;
+  text-align: center;
+  position: relative;
+
+}
+
+
+
+
+.card img {
+  width: 100%;
+  height: auto; /* Maintains the aspect ratio */
+  max-height: 180px; /* Set a maximum height to make sure they don't get too tall */
+  object-fit: cover; /* Ensures the image covers the entire area without distorting */
+  border-radius: 5px;
+}
+
+.card.tag {
+  border: 1px red solid;
+
+
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between; /* Distribute space between the cards */
+  gap: 20px; /* Space between the cards */
+  width: 100%; /* Make the container take up the full width of its parent */
+  max-width: 1200px; /* Optional: Limit the maximum width if needed */
+  margin: 0 auto; /* Center the container within the page */
+  padding: 0 20px; /* Optional: Add padding to prevent content from touching the edges */
+}
+
+.homeBlurb {
+  text-align: center;
+  width: 80%;
+  margin: 50px auto;
+}
+
+.people {
+  text-align: center;
+  padding: 1rem;
+}
+
+.btn:hover {
+  opacity: 0.5;
 }

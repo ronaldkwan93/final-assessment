@@ -1,3 +1,8 @@
+Navbar {
+    margin: 20px;
+    background: #d1dedd;
+  }
+
 .navbar .mx-auto {
     width: 80%; /* Adjust width as needed */
     display: flex;
@@ -21,3 +26,4 @@
     width: 2rem;
     margin-right: 1rem;
 }
+

@@ -22,7 +22,6 @@ const SalariesSearch = () => {
   return (
     <>
       <UserNavBar />
-      <img src="/pin.png" alt="pin" placeholder="hello"/>
       <div>
         <div className="Main">
           <h1>Salaries</h1>

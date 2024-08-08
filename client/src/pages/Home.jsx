@@ -1,50 +1,75 @@
 import React from "react";
 import NavbarHome from "../components/Navbar";
-import "./Home.css";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
-  
+
   const handleClick = () => {
-    
-    navigate('/register');
+    navigate("/register");
   };
 
   return (
-    <div className="App">
+    <div className="">
       <NavbarHome />
-      <main className="HomeContent">
-        <div className="HomeTitle">Discover Your Future, now</div>
-        <div className="midText">
-        <div>Free Career advise portal</div>
-        <div><label htmlFor="email">
-              <strong>Provide Email here</strong>
-            </label></div>
-            <form action="">
-        <input type="email" required />
-              <div>
-                <button onClick={handleClick}>Sign me up! </button>
-              </div>
-            </form>
-        <div>
-          </div>
-          
-        <div>Discover Your potential with Confidence with Step.io</div>
-        <div>
-          Explore trusted insights to make informed decisions about your career,
-          salary expectations, and university options. We provide the resources
-          you need to succeed.
-        </div>
 
+      <div className="card">
+        <header className="headerHome">
+          <h1>Discover Your Future, with STEP.IO</h1>
+        </header>
+
+        <div className="grid-item2">
+          <div>Your personal career adviser</div>
+
+          <div className="grid-item2">
+            <strong>What's your question?</strong>
+            <div>
+              <label htmlFor="email"></label>
+            </div>
+          </div>
+          <form action="">
+            <input type="email" required />
+            <div>
+              <button className="btn" onClick={handleClick}>
+                Search{" "}
+              </button>
+            </div>
+          </form>
+          <div></div>
         </div>
-        <div className="info-container">
-          <div className="info-item">Uncover Your Dream Job</div>
-          <div className="info-item">Choose the Right College for You</div>
-          <div className="info-item">See How Salaries Stack Up</div>
+      </div>
+      <div className="people">
+        {/* <div>Discover Your potential with Confidence with Step.io</div> */}
+        <img src="/networking.png" alt="" />
+      </div>
+
+      <div className="homeBlurb">
+        <div>
+          <strong>What is STEP.IO?</strong>
         </div>
-      </main>
+        Explore trusted insights to make informed decisions about your career,
+        salary expectations, and university options. We provide the resources
+        you need to succeed.
+      </div>
+
+      <div className="info-container">
+        <div className="card">
+          Uncover Your Dream Job <img src="/job.jpg" alt="" />
+        </div>
+        <div className="card">
+          Choose the Right College for You <img src="/college.jpg" alt="" />
+        </div>
+        <div className="card">
+          See How Salaries Stack Up <img src="/salary.jpg" alt="" />
+        </div>
+      </div>
+
+      <div className="homeBlurb">
+        <h1>Ready to accelerate your career?</h1>
+        <button onClick={handleClick}>YES</button>
+      </div>
       <Footer />
     </div>
   );
