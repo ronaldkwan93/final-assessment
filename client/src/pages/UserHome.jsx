@@ -39,6 +39,12 @@ const UserHome = () => {
     localStorage.setItem('pinnedCareers', JSON.stringify(updatedPinnedCareers));
   };
 
+  const handleCareerClick = (careerName) => {
+    const formattedCareerName =careerName.toLowerCase().replace(/ /g, "-"); // Encode the career name for the URL
+    const url = `https://www.seek.com.au/career-advice/role/${formattedCareerName}`;
+    window.open(url, '_blank'); // Open the URL in a new tab
+  };
+
   return (
     <>
       <UserNavBar />
@@ -74,20 +80,17 @@ const UserHome = () => {
         <div className="grid-container">
           {pinnedCareers.length > 0 ? (
             pinnedCareers.map((career) => (
-              <div 
-                key={career._id} 
-                className="grid-item" 
-                onClick={() => handleRemoveCareer(career._id)} // Add click handler here
-              >
+              <div key={career._id} className="grid-item">
                 <h2>{career.name}</h2>
                 <p><strong>Discipline:</strong> {career.discipline}</p>
                 <p><strong>Years of Study:</strong> {career.studyYears}</p>
+                <button className="delete-button" onClick={() => handleRemoveCareer(career._id)}>Delete</button>
+                <button className="view-career-button" onClick={() => handleCareerClick(career.name)}>View Career</button>
               </div>
             ))
           ) : (
             <Link to='/careers' className="careerLink">
-            <p>Can't see any pins. Click here to explore!</p>
-            
+              <p>Can't see any pins. Click here to explore!</p>
             </Link>
           )}
         </div>

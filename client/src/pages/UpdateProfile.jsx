@@ -5,7 +5,6 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import arrowBack from '/arrowback.png'
 
-
 const UpdateProfile = () => {
   const [user, setUser] = useState(null);
   const [name, setName] = useState("");
@@ -27,19 +26,20 @@ const UpdateProfile = () => {
         .catch((error) => {
           console.error("There was an error fetching the user!", error);
         });
+    } else {
+      console.error("Email not found in local storage.");
     }
   }, []);
 
   const handleUpdate = (e) => {
-    console.log('button clicked');
     e.preventDefault();
     const email = localStorage.getItem('userEmail'); // Retrieve email from local storage
-  
+
     if (!email) {
       console.error("User email is missing");
       return;
     }
-  
+
     axios
       .put("http://localhost:3001/updateUser", { email, name, password }) // Pass email instead of userId
       .then((response) => {
@@ -49,8 +49,6 @@ const UpdateProfile = () => {
       .catch((error) => {
         console.error("There was an error updating the profile!", error);
       });
-
-    
   };
 
   return (
@@ -59,8 +57,8 @@ const UpdateProfile = () => {
       <div className="d-flex flex-column align-items-center">
         <div className="Main">
           <Link to={'/member'}>
-          <img src={arrowBack} alt=""/>
-           </Link>
+            <img src={arrowBack} alt="Back" />
+          </Link>
           <h1>Update Profile</h1>
         </div>
         <div>

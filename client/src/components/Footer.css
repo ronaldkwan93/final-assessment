@@ -6,5 +6,32 @@
 }
 
 .footer {
-  margin-top: 5rem;
+  background-color:#ffffff; /* Darker background for the footer */
+  text-align: center; /* Center-align text */
+  margin-top: 20rem;
+}
+
+.footer a {
+  color: #ccc; /* Light gray text color */
+  text-decoration: none; /* Remove underline */
+  padding: 8px 12px; /* Spacing around each link */
+  font-size: 14px; /* Slightly smaller text size */
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition for color and underline */
+}
+
+
+.footer a:hover {
+  color: #007BFF; /* Change text color on hover */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+.footer a.active {
+  color: #007BFF; /* Highlight the active link */
+  text-decoration: underline; /* Underline the active link */
+}
+
+.footer a:focus {
+  outline: none; /* Remove default focus outline */
+  color: #fff; /* Change text color on focus */
+  text-decoration: underline; /* Underline on focus */
 }

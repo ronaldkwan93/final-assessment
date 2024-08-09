@@ -30,6 +30,7 @@ const UserNavBar = () => {
               <Nav.Link href="#action1" as={Link} to='/careers'>Careers</Nav.Link>
               <Nav.Link href="#action2" as={Link} to='/salaries'>Salaries</Nav.Link>
               <Nav.Link href="#action3" as={Link} to='/universities'>Universities</Nav.Link>
+              
             </Nav>
           </div>
           <Form className="d-flex">
@@ -41,7 +42,7 @@ const UserNavBar = () => {
               /> */}
           </Form>
 
-              <Nav.Link href="#action1" as={Link} to='/member' className='navMember'><img src={profileIcon} alt="Profile" /></Nav.Link>
+              <Nav.Link href="#action1" as={Link} to='/member' className='navMember'><img src={profileIcon} alt="Profile" class="memberbtn" /></Nav.Link>
           <Button variant="outline-success" className='NavSignIn' as={Link} to='/' onClick={onClick}>Sign out</Button>
         </Navbar.Collapse>
       </Container>

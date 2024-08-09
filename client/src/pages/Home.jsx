@@ -3,12 +3,14 @@ import NavbarHome from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import "typeface-roboto";
+
 
 const Home = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/register");
+    navigate("/about");
   };
 
   return (
@@ -33,7 +35,7 @@ const Home = () => {
             <input type="email" required />
             <div>
               <button className="btn" onClick={handleClick}>
-                Search{" "}
+                USE STEP.IO{" "}
               </button>
             </div>
           </form>
@@ -68,7 +70,7 @@ const Home = () => {
 
       <div className="homeBlurb">
         <h1>Ready to accelerate your career?</h1>
-        <button onClick={handleClick}>YES</button>
+        <button className="btn" onClick={handleClick}>YES!</button>
       </div>
       <Footer />
     </div>

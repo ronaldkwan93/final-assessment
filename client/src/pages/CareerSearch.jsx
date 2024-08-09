@@ -63,6 +63,7 @@ const CareerSearch = () => {
       <div>
         <div className="Main">
           <h1>Careers</h1>
+          <h2>Found something? Click on the Pin to save! (On your profile)</h2>
           <input
             type="search"
             placeholder="Search here"
