@@ -10,6 +10,8 @@ import UserHome from "./pages/UserHome";
 import UpdateProfile from "./pages/UpdateProfile";
 import About from "./pages/About";
 import UserAbout from "./pages/UserAbout";
+import Contact from "./pages/Contact";
+import UserContact from "./pages/UserContact";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/updateProfile" element={<UpdateProfile />} /> 
           <Route path="/about" element={<About />} /> 
           <Route path="/userabout" element={<UserAbout />} /> 
+          <Route path="/contact" element={<Contact />} /> 
+          <Route path="/membercontact" element={<UserContact />} /> 
 
           </Routes>
       </BrowserRouter>

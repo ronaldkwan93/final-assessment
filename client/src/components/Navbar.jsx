@@ -28,6 +28,7 @@ const NavbarHome = () => {
               <Nav.Link href="#action2" as={Link} to="/register">Salaries</Nav.Link>
               <Nav.Link href="#action3" as={Link} to="/register">Universities</Nav.Link>
               <Nav.Link href="#action3" as={Link} to="/about">About Us</Nav.Link>
+              <Nav.Link href="#action3" as={Link} to="/contact">Contact Us</Nav.Link>
             </Nav>
           </div>
           <Form className="d-flex">
