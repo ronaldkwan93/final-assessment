@@ -60,9 +60,9 @@ const Footer = () => {
               <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4'>
                 <h6 className='text-uppercase fw-bold mb-4'>Support</h6>
                 <p>
-                  <a href='/contact' className='text-reset'>
-                    Contact Us
-                  </a>
+                <Link to='/contact' className='text-reset'>
+                    Contact
+                  </Link>
                 </p>
                 <p>
                   <a href='#!' className='text-reset'>
