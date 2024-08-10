@@ -1,7 +1,8 @@
 import React from "react";
 import Footer from "../components/Footer";
 import NavbarHome from "../components/Navbar";
-import './About.css';
+import "./About.css";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -25,7 +26,11 @@ const About = () => {
           and reach their full potential.
         </p>
         <div className="cta-container">
-          <a href="/register" className="cta-button">Start here</a>
+          <Link to="/register" className="text-reset">
+            <a href="" className="cta-button">
+              Start here
+            </a>
+          </Link>
         </div>
       </div>
       <Footer />
