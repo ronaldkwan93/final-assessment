@@ -21,7 +21,7 @@ const Home = () => {
           <img src="/networking.png" alt="Networking" />
         </div>
 
-        <div className="card">
+        <div className="cardHome">
           <header className="headerHome">
             <h1>Discover Your Future, with STEP.IO!</h1>
           </header>

@@ -28,7 +28,7 @@ const Contact = () => {
   return (
     <div className="contactBody">
       <NavbarHome />
-      <h1 className="conTitle">Contact Us</h1>
+      <h1 className="conTitle">Leave us a message!</h1>
       <div className="contactForm">
         <form action="" className="card" onSubmit={handleSubmit}>
           <div className="formCon">

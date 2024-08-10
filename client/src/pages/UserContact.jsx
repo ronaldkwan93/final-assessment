@@ -30,7 +30,7 @@ const UserContact = () => {
   return (
     <div className="contactBody">
       <UserNavBar />
-      <h1 className="conTitle">Contact Us</h1>
+      <h1 className="conTitle">Any Questions? Leave us a message!</h1>
       <div className="contactForm">
         <form action="" className="card" onSubmit={handleSubmit}>
           <div className="formCon">
