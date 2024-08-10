@@ -24,9 +24,6 @@ const NavbarHome = () => {
             <Nav className="m-auto">
 
               <Nav.Link href="#action1" as={Link} to="/">Home</Nav.Link>
-              <Nav.Link href="#action1" as={Link} to="/register">Careers</Nav.Link>
-              <Nav.Link href="#action2" as={Link} to="/register">Salaries</Nav.Link>
-              <Nav.Link href="#action3" as={Link} to="/register">Universities</Nav.Link>
               <Nav.Link href="#action3" as={Link} to="/about">About Us</Nav.Link>
               <Nav.Link href="#action3" as={Link} to="/contact">Contact Us</Nav.Link>
             </Nav>
