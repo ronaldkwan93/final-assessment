@@ -27,6 +27,7 @@ const UserNavBar = () => {
         <Navbar.Collapse id="navbarScroll">
           <div className="mx-auto d-flex">
             <Nav className="m-auto">
+              <Nav.Link href="#action1" as={Link} to='/member'>Dashboard</Nav.Link>
               <Nav.Link href="#action1" as={Link} to='/careers'>Careers</Nav.Link>
               <Nav.Link href="#action2" as={Link} to='/salaries'>Salaries</Nav.Link>
               <Nav.Link href="#action3" as={Link} to='/universities'>Universities</Nav.Link>

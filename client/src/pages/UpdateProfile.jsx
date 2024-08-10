@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../components/Footer";
 import UserNavBar from "../components/UserNavBar";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import arrowBack from '/arrowback.png'
+import arrowBack from "/arrowback.png";
+import UserFooter from "../components/UserFooter";
 
 const UpdateProfile = () => {
   const [user, setUser] = useState(null);
@@ -13,7 +13,7 @@ const UpdateProfile = () => {
   const navigate = useNavigate(); // Initialize the navigate function
 
   useEffect(() => {
-    const email = localStorage.getItem('userEmail'); 
+    const email = localStorage.getItem("userEmail");
     if (email) {
       axios
         .post("http://localhost:3001/getUser", { email })
@@ -22,7 +22,7 @@ const UpdateProfile = () => {
           setName(response.data.name);
           setEmail(response.data.email);
           setPassword(response.data.password);
-        }) 
+        })
         .catch((error) => {
           console.error("There was an error fetching the user!", error);
         });
@@ -33,7 +33,7 @@ const UpdateProfile = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    const email = localStorage.getItem('userEmail'); // Retrieve email from local storage
+    const email = localStorage.getItem("userEmail"); // Retrieve email from local storage
 
     if (!email) {
       console.error("User email is missing");
@@ -56,42 +56,44 @@ const UpdateProfile = () => {
       <UserNavBar />
       <div className="d-flex flex-column align-items-center">
         <div className="Main">
-          <Link to={'/member'}>
+          <Link to={"/member"}>
             <img src={arrowBack} alt="Back" />
           </Link>
-          <h1>Update Profile</h1>
         </div>
-        <div>
-          <form onSubmit={handleUpdate}>
-            <div>
-              <label>Name: </label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>Email: </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>Password: </label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <button type="submit">Update Profile</button>
-          </form>
+        <div className="card">
+          <div>
+            <h1>Update Profile</h1>
+            <form onSubmit={handleUpdate}>
+              <div>
+                <label>Name: </label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+              <div>
+                <label>Email: </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="passwordInput">
+                <label>Password: </label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <button type="submit">Update Profile</button>
+            </form>
+          </div>
         </div>
       </div>
-      <Footer />
+      <UserFooter />
     </>
   );
 };

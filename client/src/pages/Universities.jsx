@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import UserNavBar from "../components/UserNavBar";
 import axios from "axios";
 import "./PagesCustom.css";
+import UserFooter from "../components/UserFooter";
 
 const Universities = () => {
   const [universities, setUniversities] = useState([]);
@@ -20,8 +21,8 @@ const Universities = () => {
       });
   }, []);
 
-  const handleGridItemClick = (url) => {
-    window.location.href = url;
+  const handleCareerClick = (url) => {
+    window.open(url, "_blank");
   };
 
   const handleSearchChange = (event) => {
@@ -61,6 +62,12 @@ const Universities = () => {
                 <p>
                   <strong>Location:</strong> {university.location}
                 </p>
+                <button
+                  className="view-career-button"
+                  onClick={() => handleCareerClick(university.link)}
+                >
+                  View Website
+                </button>
               </div>
             ))
           ) : (
@@ -68,7 +75,7 @@ const Universities = () => {
           )}
         </div>
       </div>
-      <Footer />
+      <UserFooter />
     </>
   );
 };

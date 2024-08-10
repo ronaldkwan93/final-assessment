@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import "typeface-roboto";
 
-
 const Home = () => {
   const navigate = useNavigate();
 
@@ -14,63 +13,73 @@ const Home = () => {
   };
 
   return (
-    <div className="">
+    <div>
       <NavbarHome />
 
-      <div className="card">
-        <header className="headerHome">
-          <h1>Discover Your Future, with STEP.IO</h1>
-        </header>
+      <div className="main-container">
+        <div className="people">
+          <img src="/networking.png" alt="Networking" />
+        </div>
 
-        <div className="grid-item2">
-          <div>Your personal career adviser</div>
+        <div className="card">
+          <header className="headerHome">
+            <h1>Discover Your Future, with STEP.IO!</h1>
+          </header>
 
           <div className="grid-item2">
-            <strong>What's your question?</strong>
-            <div>
-              <label htmlFor="email"></label>
+            <div>Your personal career adviser</div>
+
+            <div className="grid-item2">
+              <strong>What's your question?</strong>
+              <div>
+                <label htmlFor="email"></label>
+              </div>
             </div>
+            <form action="">
+              <input type="email" required />
+              <div>
+                <button className="btn" onClick={handleClick}>
+                  USE STEP.IO
+                </button>
+              </div>
+            </form>
+            <div></div>
           </div>
-          <form action="">
-            <input type="email" required />
-            <div>
-              <button className="btn" onClick={handleClick}>
-                USE STEP.IO{" "}
-              </button>
-            </div>
-          </form>
-          <div></div>
         </div>
-      </div>
-      <div className="people">
-        {/* <div>Discover Your potential with Confidence with Step.io</div> */}
-        <img src="/networking.png" alt="" />
       </div>
 
       <div className="homeBlurb">
         <div>
-          <strong>What is STEP.IO?</strong>
+          {/* <strong>Discover STEP.IO</strong> */}
         </div>
-        Explore trusted insights to make informed decisions about your career,
+        <h4>
+
+        Explore with <strong>STEP.IO</strong> and see trusted insights to make informed decisions about your career,
         salary expectations, and university options. We provide the resources
         you need to succeed.
+        </h4>
       </div>
-
       <div className="info-container">
         <div className="card">
-          Uncover Your Dream Job <img src="/job.jpg" alt="" />
+          Uncover Your Dream Job <img src="/job.jpg" alt="Job" />
+          <p>Chart Your Career Course—Explore, Prepare, and Achieve Success in Your Chosen Field.</p>
         </div>
         <div className="card">
-          Choose the Right College for You <img src="/college.jpg" alt="" />
+          Choose the Right College for You{" "}
+          <img src="/college.jpg" alt="College" />
+          <p>Navigate Your Academic Journey—Discover the Campus, Community, and Programs That Will Shape Your Future.</p>
         </div>
         <div className="card">
-          See How Salaries Stack Up <img src="/salary.jpg" alt="" />
+          See How Salaries Stack Up <img src="/salary.jpg" alt="Salary" />
+          <p>Compare Earnings Across Industries—Understand What You Can Expect to Earn in Your Chosen Field.</p>
         </div>
       </div>
 
       <div className="homeBlurb">
         <h1>Ready to accelerate your career?</h1>
-        <button className="btn" onClick={handleClick}>YES!</button>
+        <button className="btn" onClick={handleClick}>
+          Trial STEP.IO
+        </button>
       </div>
       <Footer />
     </div>

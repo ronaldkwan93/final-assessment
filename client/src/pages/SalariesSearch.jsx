@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import UserNavBar from "../components/UserNavBar";
 import axios from "axios";
 import "./PagesCustom.css";
+import UserFooter from "../components/UserFooter";
 
 const SalariesSearch = () => {
   const [SalariesSearch, setSalariesSearch] = useState([]);
@@ -50,7 +51,7 @@ const SalariesSearch = () => {
           )}
         </div>
       </div>
-      <Footer />
+      <UserFooter />
     </>
   );
 };

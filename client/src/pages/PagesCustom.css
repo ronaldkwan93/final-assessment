@@ -10,7 +10,7 @@ body {
 }
 
 .Main {
-  text-align: center;
+  margin-left: 5rem;
   margin-top: 2rem;
 }
 
@@ -38,6 +38,8 @@ body {
   gap: 5px; /* Optional: space between grid items */
   background-color: #e6dede;
   padding: 10px;
+  width: 90%;
+  margin: 0 auto;
   
 }
 
@@ -69,7 +71,9 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem; /* Adjust as needed */
     color: #333; /* Dark gray text */
-    margin: 20px 0;
+    margin-top: 5px;
+    margin-left: 5rem;
+    
 }
 
 .careerLink {
@@ -85,7 +89,6 @@ header {
 
 .card {
   width: 500px;
-  margin: auto;
   padding: 20px;
   margin-top: 1rem;
   text-align: center;
@@ -197,4 +200,39 @@ header {
 .delete-button:active {
   background-color: #a71d2a; /* Even darker red when clicked */
   transform: scale(0.95); /* Slightly reduce size for a pressed effect */
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers both elements horizontally */
+  padding: 20px;
+  gap: 10px; /* Adds some space between the card and the image */
+}
+
+.u-container2 {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 4.5em; /* Adds some space between the card and the image */
+  margin-left: 5rem;
+}
+
+.u-container2 p {
+  width: 55%;
+}
+
+.savedHelp {
+  margin-left: 5em;
+  margin-top: 3em;
+}
+
+.pageHeader {
+  font-style: oblique;
+  font-weight: bold;
+  
+}
+
+.passwordInput {
+  margin-right: 2em;
 }

@@ -1,12 +1,12 @@
 import React from "react";
-import Footer from "../components/Footer";
-import NavbarHome from "../components/Navbar";
 import './About.css';
+import UserNavBar from "../components/UserNavBar";
+import UserFooter from "../components/UserFooter";
 
-const About = () => {
+const UserAbout = () => {
   return (
     <div>
-      <NavbarHome />
+      <UserNavBar />
       <div className="whole">
         <div className="header">Got a Question? We got answers.</div>
         <div className="title">Making Careers Better</div>
@@ -25,12 +25,12 @@ const About = () => {
           and reach their full potential.
         </p>
         <div className="cta-container">
-          <a href="/register" className="cta-button">Start here</a>
+          <a href="/member" className="cta-button">Start here</a>
         </div>
       </div>
-      <Footer />
+      <UserFooter />
     </div>
   );
 };
 
-export default About;
+export default UserAbout;

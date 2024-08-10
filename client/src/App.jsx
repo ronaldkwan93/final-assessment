@@ -9,6 +9,7 @@ import Universities from "./pages/Universities";
 import UserHome from "./pages/UserHome";
 import UpdateProfile from "./pages/UpdateProfile";
 import About from "./pages/About";
+import UserAbout from "./pages/UserAbout";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/member" element={<UserHome />} />
           <Route path="/updateProfile" element={<UpdateProfile />} /> 
           <Route path="/about" element={<About />} /> 
+          <Route path="/userabout" element={<UserAbout />} /> 
 
           </Routes>
       </BrowserRouter>

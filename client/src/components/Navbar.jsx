@@ -17,11 +17,13 @@ const NavbarHome = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary navbar">
       <Container fluid>
-        <Navbar.Brand href="#" className="NavTitle">Step.io <img src={stepIcon} alt="" /></Navbar.Brand>
+        <Navbar.Brand href="/" className="NavTitle">Step.io <img src={stepIcon} alt="" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <div className="mx-auto d-flex">
             <Nav className="m-auto">
+
+              <Nav.Link href="#action1" as={Link} to="/">Home</Nav.Link>
               <Nav.Link href="#action1" as={Link} to="/register">Careers</Nav.Link>
               <Nav.Link href="#action2" as={Link} to="/register">Salaries</Nav.Link>
               <Nav.Link href="#action3" as={Link} to="/register">Universities</Nav.Link>

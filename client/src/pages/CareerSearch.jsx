@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import UserNavBar from "../components/UserNavBar";
 import axios from "axios";
 import './PagesCustom.css';
+import UserFooter from "../components/UserFooter";
 
 const CareerSearch = () => {
   const [careers, setCareers] = useState([]);
@@ -27,10 +28,10 @@ const CareerSearch = () => {
     }
   }, []);
 
-  const handleGridItemClick = (careerName) => {
+  const handleCareerClick = (careerName) => {
     const formattedCareerName = careerName.toLowerCase().replace(/ /g, "-");
     const url = `https://www.seek.com.au/career-advice/role/${formattedCareerName}`;
-    window.location.href = url;
+    window.open(url, "_blank");
   };
 
   const handlePinClick = (career) => {
@@ -63,7 +64,7 @@ const CareerSearch = () => {
       <div>
         <div className="Main">
           <h1>Careers</h1>
-          <h2>Found something? Click on the Pin to save! (On your profile)</h2>
+          <p className="card">Found something? Click on the Pin to save to your profile!</p>
           <input
             type="search"
             placeholder="Search here"
@@ -98,11 +99,18 @@ const CareerSearch = () => {
                 <p>
                   <strong>Years of Study:</strong> {career.studyYears}
                 </p>
+                <button
+                  className="view-career-button"
+                  onClick={() => handleCareerClick(career.name)}
+                >
+                  View Career
+                </button>
                 {pinnedCareers.some(c => c._id === career._id) && (
                   <div className="pinned-message">
                     Pinned!
                   </div>
                 )}
+
               </div>
             ))
           ) : (
@@ -110,7 +118,7 @@ const CareerSearch = () => {
           )}
         </div>
       </div>
-      <Footer />
+      <UserFooter />
     </>
   );
 };
