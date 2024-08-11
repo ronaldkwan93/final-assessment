@@ -6,7 +6,7 @@ Welcome to **Step.IO**!
 
 ## A link (URL) to your deployed website
 
-[STEP.IO](https://rkfinalproject.netlify.app/)
+[STEP.IO](https://stepio.netlify.app/)
 
 ## A link to your GitHub repository (repo)
 
